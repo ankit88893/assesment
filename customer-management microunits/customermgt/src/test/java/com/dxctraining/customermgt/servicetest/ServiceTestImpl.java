@@ -1,6 +1,6 @@
 package com.dxctraining.customermgt.servicetest;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*; 
 
 import javax.persistence.EntityManager;
 
@@ -16,7 +16,6 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.dxctraining.customermgt.customer.entities.Customer;
 import com.dxctraining.customermgt.customer.exception.CustomerNotFoundException;
-import com.dxctraining.customermgt.customer.exception.InvalidArgumentException;
 import com.dxctraining.customermgt.customer.service.CustomerServiceImpl;
 import com.dxctraining.customermgt.customer.service.ICustomerService;
 
@@ -31,12 +30,6 @@ class CustomerServiceImplTest {
 	@Autowired
 	private ICustomerService service;
 
-	@Test
-	public void testAdd_1() {
-		Executable execute=()->service.save(null);
-		Assertions.assertThrows(InvalidArgumentException.class, execute);
-	}
-	
 	@Test
 	public void testAdd_2() {
 		String name = "arjun";
