@@ -1,5 +1,8 @@
 package com.dxctraining.productmgt.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +22,6 @@ import com.dxctraining.productmgt.util.ProductUtil;
 @RestController
 @RequestMapping("/products")
 public class ProductRestController {
-	
 
 	@Autowired
 	private IProductService productService;
@@ -43,6 +45,19 @@ public class ProductRestController {
 		Product product = productService.findById(id);
 		ProductDto response = util.productDto(product);
 		return response;
+	}
+
+	@GetMapping("/get/product/{name}")	
+	@ResponseStatus(HttpStatus.OK)
+	public List<ProductDto> findProductByName(@PathVariable("name") String name){
+		List<Product> list = productService.findByName(name);
+		List<ProductDto> response = new ArrayList<>();
+		for(Product product:list) {
+		ProductDto dto	=util.productDto(product);
+		response.add(dto);
+		}
+		return response;
+		
 	}
 
 }

@@ -1,6 +1,6 @@
 package com.dxctraining.productmgt.util;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component; 
 
 import com.dxctraining.productmgt.dto.ProductDto;
 import com.dxctraining.productmgt.entities.Product;

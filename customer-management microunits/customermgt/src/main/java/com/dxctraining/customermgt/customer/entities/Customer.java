@@ -1,10 +1,10 @@
 package com.dxctraining.customermgt.customer.entities;
 
-import javax.persistence.Entity; 
+import javax.persistence.Entity;  
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "customers")

@@ -1,5 +1,8 @@
 package com.dxctraining.customermgt.customer.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;  
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -45,5 +48,21 @@ public class CustomerRestController {
 		CustomerDto response = util.customerDto(customer);
 		return response;
 	}
+	
+	   @GetMapping("/get/{name}")
+	    @ResponseStatus(HttpStatus.OK)
+	    public List<CustomerDto> findCustomerByName(@PathVariable("name")String name){
+	    	List<Customer> list = customerService.findByName(name);
+	    	List<CustomerDto> response = new ArrayList<>();
+	    	for (Customer customer:list) {
+	    		CustomerDto dto = util.customerDto(customer);
+	    		response.add(dto);
+	    	}
+			return response;
+	    	
+	    }
+
+	
+	
 
 }
