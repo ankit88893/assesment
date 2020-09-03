@@ -35,8 +35,8 @@ public class WishlistServiceImpl implements IWishlistService {
 		if (!optional.isPresent()) {
 			throw new WishlistNotFoundException("supplier not found for id=" + id);
 		}
-		WishedItem customer = optional.get();
-		return customer;
+		WishedItem wishedItem = optional.get();
+		return wishedItem;
 	}
 
 }
